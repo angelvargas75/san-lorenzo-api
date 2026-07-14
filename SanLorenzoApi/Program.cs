@@ -6,6 +6,7 @@ using System.Text;
 using SanLorenzoApi.Modulos.Auth;
 using SanLorenzoApi.Shared.Middlewares;
 using SanLorenzoApi.Modulos.Usuarios;
+using SanLorenzoApi.Modulos.Academico;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -82,6 +83,8 @@ builder.Services.AddCors(options =>
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUsuariosRepository, UsuariosRepository>();
 builder.Services.AddScoped<IUsuariosService, UsuariosService>();
+builder.Services.AddScoped<IAcademicoRepository, AcademicoRepository>();
+builder.Services.AddScoped<IAcademicoService, AcademicoService>();
 
 
 var app = builder.Build();
