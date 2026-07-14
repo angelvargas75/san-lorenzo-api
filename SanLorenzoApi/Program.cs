@@ -5,6 +5,7 @@ using SanLorenzoApi.Data;
 using System.Text;
 using SanLorenzoApi.Modulos.Auth;
 using SanLorenzoApi.Shared.Middlewares;
+using SanLorenzoApi.Modulos.Usuarios;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -79,6 +80,9 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUsuariosRepository, UsuariosRepository>();
+builder.Services.AddScoped<IUsuariosService, UsuariosService>();
+
 
 var app = builder.Build();
 
