@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using SanLorenzoApi.Data;
 using System.Text;
 using SanLorenzoApi.Modulos.Auth;
+using SanLorenzoApi.Shared.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -87,6 +88,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseHttpsRedirection();
 app.UseCors("AngularApp");
 app.UseAuthentication();
